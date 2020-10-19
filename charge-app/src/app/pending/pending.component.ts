@@ -18,6 +18,8 @@ export class PendingComponent implements OnInit {
   ngOnInit(): void {
     if(sessionStorage.getItem('role')!="approver" && sessionStorage.getItem('role')!="creator" )
     {
+      
+      alert("Access Not Allowed");
       this._router.navigate(['/']);
     }
     else{
