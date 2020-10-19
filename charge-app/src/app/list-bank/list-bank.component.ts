@@ -16,6 +16,8 @@ export class ListBankComponent implements OnInit {
   ngOnInit(): void {
     if(sessionStorage.getItem('role')==null)
     {
+      
+      alert("Access Not Allowed")
       this._router.navigate(['/']);
     }  
     else{
