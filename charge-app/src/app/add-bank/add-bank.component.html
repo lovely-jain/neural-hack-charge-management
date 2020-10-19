@@ -1,0 +1,66 @@
+<br>
+<h4 style="text-align:center">Add Rule</h4>
+
+<div class="container">
+    <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> Logged In
+        <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close" required>
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form [formGroup]="add" #addform="ngForm" (ngSubmit)="addRule()" ngNativeValidate>
+
+        <div class="form-group">
+            <label>Category</label>
+            <small> * </small>
+            <input type="text" class="form-control" name="category" formControlName="category" [(ngModel)]="rule.category" required>
+            
+
+        </div>
+
+        <div class="form-group">
+            <label>Operation Type</label>
+            <small> * </small>
+            <input type="text" class="form-control" name="operationType" formControlName="operationType" [(ngModel)]="rule.operationType" required>
+            
+        </div>
+
+        <div class="form-group">
+            <label>Condition</label>
+            <small> * </small>
+            <input type="text" class="form-control" name="condition" formControlName="conditionType" [(ngModel)]="rule.conditionType" required>
+            
+        </div>
+
+
+        <div class="form-group">
+            <label>Limit (optional)</label>
+            <div class="form-group">
+            <small>From</small><input type="number" class="form-control" name="limitFrom" min="0" 
+            max="2147483647" formControlName="limitFrom" [(ngModel)]="rule.limitFrom">
+            <small>To</small><input type="number" class="form-control" name="limitTo" min="0"
+             max="2147483647" formControlName="limitTo" [(ngModel)]="rule.limitTo">
+        </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>Fees</label>
+            <div class="form-group">
+            <small>Type*</small><input type="text" class="form-control" name="feesType" formControlName="feesType"
+                [(ngModel)]="rule.feesType" required>
+            <small>Value*</small><input type="number" step="0.000001" class="form-control" name="feesValue" min="0" max="2147483648" formControlName="feesValue"
+                [(ngModel)]="rule.feesValue" required>
+        </div>
+        </div>
+        <button type="reset" class="btn btn-info">reset</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="submit" class="btn btn-info">Add Rule</button>
+    </form>
+    <br>
+<div *ngIf="alerterror" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Some Error Occurred !</strong> 
+    <button (click)="closeAlert2()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+</div>

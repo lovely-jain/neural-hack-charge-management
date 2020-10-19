@@ -1,0 +1,71 @@
+<div>
+  <div>
+ <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+   <a class="navbar-brand" href="#">CHARGE APPLICATION</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+     aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+ 
+   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+ 
+     <!-- rules management -->
+     <ul class="navbar-nav mr-auto">
+ 
+       <li *ngIf="creatorLogin()" class="nav-item">
+         <a class="nav-link" routerLink="add" >Add</a>
+       </li>
+ 
+       <li *ngIf="adminLogin()" class="nav-item">
+         <a class="nav-link" routerLink="update" >Update</a>
+       </li>
+ 
+       <li *ngIf="adminLogin()" class="nav-item">
+         <a class="nav-link" routerLink="delete">Delete</a>
+       </li>
+ 
+       <li *ngIf="approverLogin() || creatorLogin()" class="nav-item">
+         <a class="nav-link" routerLink="pendinglist">Pending</a>
+       </li>
+ 
+       <li *ngIf="login()" class="nav-item">
+         <a class="nav-link" routerLink="list" >List</a>
+       </li>
+       
+       <li *ngIf="approverLogin()" class="nav-item">
+        <a class="nav-link" routerLink="approve">Approve</a>
+      </li>
+      <li *ngIf="approverLogin()" class="nav-item">
+        <a class="nav-link" routerLink="reject">Reject</a>
+      </li>
+      </ul>
+     
+     <!-- user -->
+       <ul  class="navbar-nav ml-auto">
+       <li *ngIf="!login()"  class="nav-item">
+         <a class="nav-link" routerLink="login" >Login</a>
+       </li>
+ 
+       <li *ngIf="login()" class="nav-item">
+         <a class="nav-link"><button class="btn btn-danger" (click)="logout()">Logout</button></a>
+       </li>
+     </ul>
+   </div>
+
+ </nav>
+ </div>
+  <br>
+ <br>
+ <br>
+ 
+ <div>
+   <h1 *ngIf="display() && !login()" style="font-size: 50px;text-align: center;padding-top: 150px;">Welcome user</h1>
+   <h3 *ngIf="userLogin() && display()" style="font-size: 50px;text-align: center;padding-top: 10px;">
+    Welcome viewer </h3>
+   <h3 *ngIf="adminLogin() && display()" style="font-size: 50px;text-align: center;padding-top: 10px;"> Welcome Admin</h3>
+   <h3 *ngIf="approverLogin() && display()" style="font-size: 50px;text-align: center;padding-top: 10px;">Welcome Approver</h3>
+   <h3 *ngIf="creatorLogin() && display()" style="font-size: 50px;text-align: center;padding-top: 10px;">Welcome Creator</h3>
+ </div>
+ 
+ </div>
+ <router-outlet></router-outlet>

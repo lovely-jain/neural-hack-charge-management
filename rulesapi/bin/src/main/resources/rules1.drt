@@ -1,0 +1,25 @@
+template header
+category
+operation_type
+condition_type
+limit_to
+limit_from
+fees_value
+fees_type
+
+package com.rulesapi.template;
+import com.rules.Entities.ChargeManagment;
+
+dialect "mvel"
+
+template "Bank"
+
+rule "Rule @{row.rowNumber}"
+when
+	c1 : ChargeManagment(bank_type == "@{category}", operation_type == "@{operation_type}",
+	 period == "@{condition_type}", operation_count <= @{limit_to}, operation_count >= @{limit_from})
+then
+	modify(c1){setTaxValue(@{fees_value},"@{fees_type}")}
+end
+
+end template

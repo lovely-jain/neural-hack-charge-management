@@ -1,0 +1,28 @@
+<br>
+<br>
+<br>
+
+<h1 style="text-align:center">Approve Rule</h1>
+
+<div class="container">
+
+    <form [formGroup]="approve" #updateform="ngForm" (ngSubmit)="approveRule()"  ngNativeValidate>
+
+        <div class="form-group">
+            <label>Enter the code</label>
+            <input type="number" class="form-control" name="code" 
+            formControlName="code" [(ngModel)]="rulecode.code"  min="1" required>
+        </div>
+
+
+        <button type="submit" class="btn btn-info">Approve Rule</button>
+    </form>
+<br>
+    <div *ngIf="alertmsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Invalid Code!</strong> 
+        <button (click)="closeAlert2()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+   
+</div>
