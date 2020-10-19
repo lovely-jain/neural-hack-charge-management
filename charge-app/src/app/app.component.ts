@@ -42,7 +42,7 @@ export class AppComponent {
 
   logout(){
     this.auth.logout();
-     console.log("logging out.....");
+     console.log("logging out");
     this.userService.login=false;
     this.login();
     this.userService.adminLogin = false;
