@@ -32,6 +32,8 @@ export class AddBankComponent implements OnInit {
   ngOnInit(): void {
     if(sessionStorage.getItem('role')!="creator")
     {
+      
+      alert("Access Not Allowed")
       this._router.navigate(['/']);
     } 
   }
