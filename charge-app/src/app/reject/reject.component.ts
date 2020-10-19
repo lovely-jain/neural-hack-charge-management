@@ -29,6 +29,8 @@ export class RejectComponent implements OnInit {
   ngOnInit(): void {
     if(sessionStorage.getItem('role')!="approver")
     {
+      
+      alert("Access Not Allowed");
       this._router.navigate(['/']);
     }
   }
