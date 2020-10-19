@@ -31,6 +31,8 @@ export class UpdateRuleComponent implements OnInit {
   ngOnInit(): void {
     if(sessionStorage.getItem('role')!="admin" || sessionStorage.getItem('ruledata')==null)
     {
+      
+      alert("Access Not Allowed")
       this._router.navigate(['/']);
     }
     else{
