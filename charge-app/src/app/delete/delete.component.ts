@@ -29,6 +29,8 @@ export class DeleteComponent implements OnInit {
   ngOnInit(): void {
     if(sessionStorage.getItem('role')!="admin")
     {
+      
+      alert("Access Not Allowed")
       this._router.navigate(['/']);
     } 
   }
