@@ -1,0 +1,15 @@
+1. rulesapi
+-> includes code related to working of api endpoints 
+-> drools related  code
+
+2. charge-app
+-> includes code for front-end 
+-> Angular & Bootstrap code
+
+3. bankmanag1
+-> includes business logic code
+-> web application backend code using Spring Boot, Spring JPA, JWT
+-> include "rulesapi" in - project build path 
+      bankamang1--> build path ---> projects ---> rulesapi
+      
+      
