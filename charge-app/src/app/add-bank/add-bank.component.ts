@@ -15,7 +15,7 @@ export class AddBankComponent implements OnInit {
 
   constructor(private _service: UserService, private _router: Router) { }
   alert:boolean=false;
-  alerterror:boolean=true;
+  alerterror:boolean=false;
   rule=new Add();
 
   add = new FormGroup({
